@@ -34,7 +34,9 @@ jobs:
         cd frontend
         npm install
 
-    - name: Build Frontend
-      run: |
-        cd frontend
-        npm run build
+    - - name: Build Frontend
+  run: |
+    cd frontend
+    npm run build
+  env:
+    REACT_APP_API_URL: http://localhost:5000
