@@ -9,34 +9,34 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v3
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
-    # Backend Setup
-    - name: Install Backend Dependencies
-      run: |
-        cd backend
-        npm install
+      # Backend
+      - name: Install Backend Dependencies
+        run: |
+          cd backend
+          npm install
 
-    - name: Test Backend
-      run: |
-        cd backend
-        echo "Backend working"
+      - name: Test Backend
+        run: |
+          cd backend
+          echo "Backend working"
 
-    # Frontend Setup
-    - name: Install Frontend Dependencies
-      run: |
-        cd frontend
-        npm install
+      # Frontend
+      - name: Install Frontend Dependencies
+        run: |
+          cd frontend
+          npm install
 
-    - - name: Build Frontend
-  run: |
-    cd frontend
-    npm run build
-  env:
-    REACT_APP_API_URL: http://localhost:5000
+      - name: Build Frontend
+        run: |
+          cd frontend
+          npm run build
+        env:
+          REACT_APP_API_URL: http://localhost:5000
